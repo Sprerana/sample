@@ -1,0 +1,11 @@
+v <- c(7,6,9,6,8)
+y<-c(2015,2016,2017,2018,2019)
+png(file="temp.png")
+relation<-lm(v~y)
+a<-data.frame(y=2028)
+result<-predict(relation,a)
+v1<-c(v,result)
+y1<-c(y,2028)
+plot(y1,v1,col = "blue",main = "Future Prediction of Water Level",
+abline(lm(v1~y1)),cex = 1.3,pch = 16,xlab = "Year",ylab = "Water Level")
+dev.off()
